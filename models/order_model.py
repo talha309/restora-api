@@ -18,14 +18,12 @@
 # menu_item_id    → ForeignKey → MenuItem.id
 
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import String, Integer, DateTime, Float, ForeignKey, Enum, Table  # ✅ Table removed
+from sqlalchemy import String, Integer, DateTime, Float, ForeignKey, Enum, Table 
 import enum
 from db.database import Base
-from models.table_model import Table  # ✅ Import Table for relationship
-from models.user_model import User  # ✅ Import User for relationship
-from models.menu_model import MenuItem  # ✅ Import MenuItem for relationship
-# ✅ No model imports needed — relationships use string references
-
+from models.table_model import Table  
+from models.user_model import User  
+from models.menu_model import MenuItem 
 
 class OrderStatus(enum.Enum):
     pending = "pending"

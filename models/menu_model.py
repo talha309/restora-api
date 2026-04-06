@@ -4,8 +4,7 @@
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import String, Integer, DateTime, Text, ForeignKey
 from db.database import Base
-from models.order_model import OrderItem  # ✅ Import OrderItem for relationship
-
+from models.order_model import OrderItem  
 
 
 class Category(Base):

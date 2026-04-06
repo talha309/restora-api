@@ -3,7 +3,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import String, Integer, DateTime, Enum
 import enum
 from db.database import Base
-from models.order_model import Order  # ✅ Import Order for relationship
+from models.order_model import Order  
 
 
 class Role(enum.Enum):

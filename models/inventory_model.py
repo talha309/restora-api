@@ -1,13 +1,13 @@
 # inventory_model.py
 # InventoryItem table
-# id              → Integer, primary key
-# name            → String, unique, not null   (e.g. "Chicken")
-# quantity        → Float, not null            (current stock)
-# unit            → String, not null           (e.g. "kg", "liters")
-# minimum_stock   → Float, not null            ← alert threshold
-# last_updated    → DateTime, auto-updates
+# id  → Integer, primary key
+# name          → String, unique, not null   (e.g. "Chicken")
+# quantity      → Float, not null            (current stock)
+# unit          → String, not null           (e.g. "kg", "liters")
+# minimum_stock → Float, not null            ← alert threshold
+# last_updated  → DateTime, auto-updates
 
-from sqlalchemy.orm import  Mapped, mapped_column, relationship
+from sqlalchemy.orm import  Mapped, mapped_column
 from sqlalchemy import String, Integer, DateTime, Float
 from db.database import Base
 
