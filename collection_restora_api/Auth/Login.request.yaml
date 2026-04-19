@@ -1,0 +1,32 @@
+$kind: http-request
+name: Login
+url: "{{base_url}}/auth/login"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\":\"talha@gmail.com\",\r
+
+    \    \"password\":\"talha123\"\r
+
+    }"
+scripts:
+  - type: afterResponse
+    code: "const response = pm.response.json();\r
+
+      \r
+
+      if (response.access_token) {\r
+
+      \    pm.environment.set(\"token\", response.access_token);\r
+
+      \    console.log(\"✅ Token saved!\");\r
+
+      } else {\r
+
+      \    console.log(\"❌ Token not found\");\r
+
+      }"
+    language: text/javascript
+order: 2947201858404178

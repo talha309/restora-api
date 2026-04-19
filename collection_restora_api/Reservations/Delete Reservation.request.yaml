@@ -1,0 +1,5 @@
+$kind: http-request
+name: Delete Reservation
+url: "{{base_url}}/tables/reservations/1"
+method: DELETE
+order: 4419141789141365

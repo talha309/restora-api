@@ -1,0 +1,5 @@
+$kind: http-request
+name: Get Order By Table
+url: "{{base_url}}/orders/table/1"
+method: GET
+order: 3040623718779079

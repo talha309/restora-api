@@ -1,0 +1,5 @@
+$kind: http-request
+name: Delete Menu Item
+url: "{{base_url}}/menu/1"
+method: DELETE
+order: 4030780571522548

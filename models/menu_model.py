@@ -1,10 +1,12 @@
-# models/menu_model.py
-# 
-
+# restora-api/models/menu_model.py
+from __future__ import annotations
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import String, Integer, DateTime, Text, ForeignKey
+from typing import TYPE_CHECKING
 from db.database import Base
-from models.order_model import OrderItem  
+
+if TYPE_CHECKING:
+    from models.order_model import OrderItem
 
 
 class Category(Base):
@@ -34,6 +36,3 @@ class MenuItem(Base):
 
     # one menu item appears in many order items
     order_items: Mapped[list["OrderItem"]] = relationship("OrderItem", back_populates="menu_item")
-
-# one menu item appears in many order items
-# one category has many menu items

@@ -1,0 +1,5 @@
+$kind: http-request
+name: Get All Inventory
+url: "{{base_url}}/inventory/"
+method: GET
+order: 3705752695792344

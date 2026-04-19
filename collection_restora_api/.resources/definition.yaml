@@ -1,0 +1,19 @@
+$kind: collection
+name: Restora-api
+scripts:
+  - type: http:afterResponse
+    code: "const response = pm.response.json();\r
+
+      \r
+
+      if (response.access_token) {\r
+
+      \    pm.environment.set(\"token\", response.access_token);\r
+
+      \    console.log(\"✅ Token saved successfully!\");\r
+
+      } else {\r
+
+      \    console.log(\"❌ Token not found in response\");\r
+
+      }"

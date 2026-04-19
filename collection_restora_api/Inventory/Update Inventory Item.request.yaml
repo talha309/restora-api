@@ -1,0 +1,5 @@
+$kind: http-request
+name: Update Inventory Item
+url: "{{base_url}}/inventory/1"
+method: PUT
+order: 4476650858299933

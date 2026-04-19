@@ -1,0 +1,5 @@
+$kind: http-request
+name: Increment Stock
+url: "{{base_url}}/inventory/1/increment"
+method: PATCH
+order: 4445044770538375

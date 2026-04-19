@@ -1,0 +1,29 @@
+$kind: http-request
+name: Get Category by ID
+url: "{{base_url}}/menu/categories/1"
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzc2NTgyMTU1fQ.8YmrwRIYDVw-bI8QUcDDvnTJ4aFTmORj_8k4_FVn4Go
+scripts:
+  - type: afterResponse
+    code: "// auto save token to environment after login\r
+
+      const response = pm.response.json();\r
+
+      \r
+
+      if (response.access_token) {\r
+
+      \    pm.environment.set(\"token\", response.access_token);\r
+
+      \    console.log(\"✅ Token saved successfully!\");\r
+
+      } else {\r
+
+      \    console.log(\"❌ Token not found in response\");\r
+
+      }"
+    language: text/javascript
+order: 700747335408686

@@ -1,29 +1,28 @@
-# UserCreate, UserLogin, UserOut
-# UserCreate      → username, email, password, role
-# UserLogin       → email, password
-# UserOut         → id, username, email, role, created_at
-# TokenOut        → access_token, token_type
-
-from pydantic import BaseModel, EmailStr
+ # restora-api/schemas/user_schema.py
+from pydantic import BaseModel, EmailStr, ConfigDict
 from datetime import datetime
+
 
 class UserCreate(BaseModel):
     username: str
     email: EmailStr
     password: str
-    role: str
+    role: str   # "admin" | "waiter" | "kitchen" | "customer"
+
 
 class UserLogin(BaseModel):
     email: EmailStr
     password: str
 
+
 class UserOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     username: str
     email: EmailStr
     role: str
     created_at: datetime
-
 
 
 class TokenOut(BaseModel):

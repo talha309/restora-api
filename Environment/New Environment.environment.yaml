@@ -1,0 +1,8 @@
+name: Restora Local
+values:
+  - key: base_url
+    enabled: true
+    value: ''
+  - key: token
+    enabled: true
+    value: ''

@@ -1,29 +1,17 @@
-# order_model.py
-# Order + OrderItem tables
-# id              → Integer, primary key
-# status          → Enum → "pending", "preparing", "ready", "served", "cancelled"
-# total_price     → Float, default = 0
-# notes           → String, nullable
-# table_id        → ForeignKey → Table.id
-# waiter_id       → ForeignKey → User.id
-# created_at      → DateTime, default = now
-# updated_at      → DateTime, auto-updates
-
-# 🛒 OrderItem
-# id              → Integer, primary key
-# quantity        → Integer, not null
-# unit_price      → Float, not null      ← price copy at time of order
-# subtotal        → Float, not null      ← quantity × unit_price
-# order_id        → ForeignKey → Order.id
-# menu_item_id    → ForeignKey → MenuItem.id
-
+# restora-api/models/order_model.py
+# Order + OrderItem tables — no circular imports, all relationships use string refs
+from __future__ import annotations
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import String, Integer, DateTime, Float, ForeignKey, Enum, Table 
+from sqlalchemy import String, Integer, DateTime, Float, ForeignKey, Enum
+from typing import TYPE_CHECKING
 import enum
 from db.database import Base
-from models.table_model import Table  
-from models.user_model import User  
-from models.menu_model import MenuItem 
+
+if TYPE_CHECKING:
+    from models.table_model import Table
+    from models.user_model import User
+    from models.menu_model import MenuItem
+
 
 class OrderStatus(enum.Enum):
     pending = "pending"

@@ -1,0 +1,5 @@
+$kind: http-request
+name: Decrement Stock
+url: "{{base_url}}/inventory/1/decrement"
+method: PATCH
+order: 4472282031932669

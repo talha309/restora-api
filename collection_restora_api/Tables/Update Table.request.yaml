@@ -1,0 +1,18 @@
+$kind: http-request
+name: Update Table
+url: "{{base_url}}/tables/2"
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"table_number\":\"1\",\r
+
+    \    \"capacity\":\"3\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzc2NTgyMTU1fQ.8YmrwRIYDVw-bI8QUcDDvnTJ4aFTmORj_8k4_FVn4Go
+order: 4224463107348979

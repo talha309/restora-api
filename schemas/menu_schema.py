@@ -1,29 +1,29 @@
-# CategoryCreate, MenuItemCreate, MenuItemOut
-# CategoryCreate  → name, description
-# CategoryOut     → id, name, description
-# 🍔 MenuItem Schemas
-# MenuItemCreate  → name, description, price, is_available, category_id
-# MenuItemUpdate  → name?, description?, price?, is_available?   ← all optional
-# MenuItemOut     → id, name, price, is_available, category_id, created_at
-
-from pydantic import BaseModel
+ # restora-api/schemas/menu_schema.py
+from pydantic import BaseModel, ConfigDict
 from typing import Optional
+from datetime import datetime
+
 
 class CategoryCreate(BaseModel):
     name: str
     description: Optional[str] = None
-    
+
+
 class CategoryOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     name: str
     description: Optional[str] = None
+
 
 class MenuItemCreate(BaseModel):
     name: str
     description: Optional[str] = None
     price: float
-    is_available: bool
+    is_available: bool = True
     category_id: int
+
 
 class MenuItemUpdate(BaseModel):
     name: Optional[str] = None
@@ -31,11 +31,14 @@ class MenuItemUpdate(BaseModel):
     price: Optional[float] = None
     is_available: Optional[bool] = None
 
+
 class MenuItemOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     name: str
     description: Optional[str] = None
     price: float
     is_available: bool
     category_id: int
-    created_at: str
+    created_at: datetime

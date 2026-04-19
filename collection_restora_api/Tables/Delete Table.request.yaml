@@ -1,0 +1,5 @@
+$kind: http-request
+name: Delete Table
+url: "{{base_url}}/tables/1"
+method: DELETE
+order: 4264614190252009

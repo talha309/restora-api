@@ -1,0 +1,5 @@
+$kind: http-request
+name: Update Reservation Status
+url: "{{base_url}}/tables/reservations/2"
+method: PUT
+order: 4297668107405911

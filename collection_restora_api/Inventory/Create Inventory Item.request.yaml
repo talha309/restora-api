@@ -1,0 +1,8 @@
+$kind: http-request
+name: Create Inventory Item
+url: "{{base_url}}/inventory/"
+method: POST
+body:
+  type: json
+  content: '{ "name": "Tomatoes", "quantity": 50.0, "unit": "kg", "minimum_stock": 10.0 }'
+order: 1776533373159

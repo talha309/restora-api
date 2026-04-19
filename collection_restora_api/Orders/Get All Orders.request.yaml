@@ -1,0 +1,9 @@
+$kind: http-request
+name: Get All Orders
+url: "{{base_url}}/orders/"
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzc2NTg0OTY3fQ.nt1nc7Zr3XmfzyoUv7cqZpn2RbxC2fNh-IggDC9MEhg
+order: 732742600310844

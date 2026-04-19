@@ -1,0 +1,5 @@
+$kind: http-request
+name: Get Menu Item by ID
+url: "{{base_url}}/menu/1"
+method: GET
+order: 3377739156006465

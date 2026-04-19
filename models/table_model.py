@@ -1,10 +1,13 @@
-# table_model.py
+# restora-api/models/table_model.py
+from __future__ import annotations
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import String, Integer, DateTime, Enum, ForeignKey
+from sqlalchemy import String, Integer, DateTime, Enum, ForeignKey, Date, Time
+from typing import TYPE_CHECKING
 import enum
 from db.database import Base
-from models.order_model import Order 
 
+if TYPE_CHECKING:
+    from models.order_model import Order
 
 
 class Status(enum.Enum):
@@ -13,7 +16,7 @@ class Status(enum.Enum):
     reserved = "reserved"
 
 
-class Status_Customer(enum.Enum):
+class StatusCustomer(enum.Enum):
     confirmed = "confirmed"
     cancelled = "cancelled"
 
@@ -40,9 +43,12 @@ class Reservation(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     table_id: Mapped[int] = mapped_column(Integer, ForeignKey('tables.id'), nullable=False)
     customer_name: Mapped[str] = mapped_column(String(255), nullable=False)
-    reservation_time: Mapped[DateTime] = mapped_column(DateTime, nullable=False)
-    status: Mapped[Status_Customer] = mapped_column(Enum(Status_Customer), nullable=False)
+    customer_phone: Mapped[str] = mapped_column(String(50), nullable=False)
+    guests_count: Mapped[int] = mapped_column(Integer, nullable=False)
+    date: Mapped[str] = mapped_column(String(20), nullable=False)   # YYYY-MM-DD
+    time: Mapped[str] = mapped_column(String(10), nullable=False)   # HH:MM
+    status: Mapped[StatusCustomer] = mapped_column(Enum(StatusCustomer), nullable=False)
+    created_at: Mapped[DateTime] = mapped_column(DateTime, nullable=False)
 
     # many reservations belong to one table
     table: Mapped["Table"] = relationship("Table", back_populates="reservations")
-# one table has many orders

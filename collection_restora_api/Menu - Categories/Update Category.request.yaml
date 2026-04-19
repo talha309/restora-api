@@ -1,0 +1,14 @@
+$kind: http-request
+name: Update Category
+url: "{{base_url}}/menu/categories/1"
+method: PUT
+body:
+  type: json
+  content: "{\"name\": \"Starters\",\r
+
+    \    \"description\": \"Appetizers and lighting.\"}"
+auth:
+  type: bearer
+  credentials:
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzc2NTgyMTU1fQ.8YmrwRIYDVw-bI8QUcDDvnTJ4aFTmORj_8k4_FVn4Go
+order: 2254610259976959

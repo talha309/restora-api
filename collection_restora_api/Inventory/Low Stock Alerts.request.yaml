@@ -1,0 +1,5 @@
+$kind: http-request
+name: Low Stock Alerts
+url: "{{base_url}}/inventory/alerts/low-stock"
+method: GET
+order: 4476767385275665

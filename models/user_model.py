@@ -1,9 +1,13 @@
-# user_model.py
+# restora-api/models/user_model.py
+from __future__ import annotations
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import String, Integer, DateTime, Enum
+from typing import TYPE_CHECKING
 import enum
 from db.database import Base
-from models.order_model import Order  
+
+if TYPE_CHECKING:
+    from models.order_model import Order
 
 
 class Role(enum.Enum):
@@ -25,7 +29,3 @@ class User(Base):
 
     # one waiter handles many orders
     orders: Mapped[list["Order"]] = relationship("Order", back_populates="waiter")
-# one waiter handles many orders 
-
-# uv run alembic revision --autogenerate -m "design tables inventory,menu,order,table,user"
-# uv run alembic upgrade head
