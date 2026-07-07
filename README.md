@@ -251,15 +251,20 @@ Use the returned `access_token` as `Bearer Token` in all protected requests.
 
 ## 🤖 AI Assistant
 
-The `/chat/query` endpoint is powered by a **RAG (Retrieval-Augmented Generation)** agent built with **LangGraph + Google Gemini**.
+The `/chat/query` endpoint is powered by a **Retrieval-Augmented Generation (RAG)** agent built with **LangGraph + Google Gemini**.
 
-- Loads knowledge from `data.txt`
-- Splits and embeds using **Google Generative AI Embeddings**
-- Stores vectors in **FAISS** for fast retrieval
-- Maintains **conversation memory** per `thread_id`
-- Uses **Gemini 2.5 Flash** for response generation
+### Features
 
----
+* Loads knowledge from `data.txt`
+* Splits documents into chunks using **RecursiveCharacterTextSplitter**
+* Generates embeddings using **Google Generative AI Embeddings**
+* Creates a **FAISS** vector store and saves it locally in the `vector_store/` directory
+* On subsequent application startups, loads the existing local FAISS vector store instead of regenerating embeddings, reducing API usage, startup time, and embedding token consumption
+* Retrieves the most relevant document chunks using **FAISS similarity search**
+* Maintains conversation memory for each user using `thread_id`
+* Uses **Gemini 2.5 Flash** for response generation
+* Supports tool calling through **LangGraph** for knowledge retrieval
+
 
 ## 📦 Requirements
 
